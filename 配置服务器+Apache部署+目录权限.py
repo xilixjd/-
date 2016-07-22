@@ -36,6 +36,13 @@ application = init_app()
 服务器上修改配置
 nano /etc/apache2/sites-enabled/000-default.conf
 
+ServerAdmin webmaster@localhost
+#DocumentRoot /var/www/html
+WSGIScriptAlias / /var/www/weibo/weibo.wsgi
+        <Directory /var/www/weibo>
+                Require all granted
+        </Directory>
+
 
 重启Apache
 /etc/init.d/apache2 restart
